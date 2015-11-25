@@ -1,61 +1,61 @@
-﻿var StudentModule = (function () {
+﻿var EnrollmentModule = (function () {
 
     return {
-        getStudents: function (callback) {
+        getEnrollments: function (callback) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://consotoapileo.azurewebsites.net/api/Students",
+                url: "http://consotoapileo.azurewebsites.net/api/Enrollments",
                 success: function (data) {
                     callback(data);
                 }
             });
         },
 
-        getStudentById: function (id, callback) {
+        getEnrollmentById: function (id, callback) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://consotoapileo.azurewebsites.net/api/Students/" + id,
+                url: "http://consotoapileo.azurewebsites.net/api/Enrollments/" + id,
                 success: function (data) {
                     callback(data);
                 }
             });
         },
 
-        addStudent: function (student, callback) {
+        addEnrollment: function (Enrollment, callback) {
             $.ajax({
                 type: "POST",
-                data: student,
-                url: "http://consotoapileo.azurewebsites.net/api/Students",
+                data: Enrollment,
+                url: "http://consotoapileo.azurewebsites.net/api/Enrollments",
                 success: function (data, textStatus, jqXHR) {
                     callback();
                 }
             });
         },
 
-        updateStudent: function (studentid, student, callback) {
+        updateEnrollment: function (Enrollmentid, Enrollment, callback) {
             $.ajax({
                 type: "PUT",
-                data: student,
-                url: "http://consotoapileo.azurewebsites.net/api/Students/" + studentid,
+                data: Enrollment,
+                url: "http://consotoapileo.azurewebsites.net/api/Enrollments/" + Enrollmentid,
                 success: function (data, textStatus, jqXHR) {
                     callback();
                 }
             });
         },
 
-        deleteStudent: function (studentid, callback) {
+        deleteEnrollment: function (Enrollmentid, callback) {
             $.ajax({
                 type: "DELETE",
                 dataType: "json",
-                url: "http://consotoapileo.azurewebsites.net/api/Students/" + studentid,
+                url: "http://consotoapileo.azurewebsites.net/api/Enrollments/" + Enrollmentid,
                 success: function (data) {
                     callback();
                 }
             });
         }
-       
+
     };
 
 }());

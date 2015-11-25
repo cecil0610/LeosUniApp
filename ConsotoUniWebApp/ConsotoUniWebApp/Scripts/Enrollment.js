@@ -1,10 +1,15 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
     var StudentId = getUrlParameters("id", "", true);
     StudentModule.getStudentById(StudentId, function (Student) {
-        var FullName = Student["FirstName"] + " " + Student["LastName"];
+        var FullName = Student["FirstName"] + " " + Student["LastName"] + " : Enrolled Courses ";
         document.getElementById("StudentInfo").innerHTML = FullName;
+        document.getElementById("StudentInfo").classList.remove("hidden");
     });
-
+    alert("1");
+    EnrollmentModule.getEnrollments(function (Enrollments) {
+        alert("2");
+    });
+    
 });
 
 function getUrlParameters(parameter, staticURL, decode) {

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome!</title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="../Content/bootstrap.min.css" />
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
+    <script src="../Scripts/studentmodule.js"></script>
+    <script src="../Scripts/Index.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Welcome to the University of Consoto</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#">Students</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-user"></span>
+                                 Sign Up 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-log-in"></span>
+                                 Login 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped spaced-table table-hover hidden" id="StudentTable">
+                <thead>
+                    <tr>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Enrollment Date</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="StudentList">
+
+                </tbody>
+            </table>
+            <p id="LoadingMessage">Loading Data Please Wait...</p>
+        </div>
+    </div>
+</body>
+</html>

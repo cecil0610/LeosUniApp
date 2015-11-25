@@ -20,8 +20,8 @@
                 EnrollmentId = Enrollments[i].EnrollmentID;
                 CourseModule.getCourseById(CurrentCourseId, function (Course) {
                     var CurrentRow = document.createElement('tr');
-                    CurrentRow.setAttribute("data-id", CurrentCourseId);
-                    
+                    CurrentRow.setAttribute("data-id", Course["CourseID"]);
+
                     var TitleCol = document.createElement('td');
                     TitleCol.innerHTML = Course["Title"];
                     CurrentRow.appendChild(TitleCol);
@@ -44,7 +44,7 @@
                     var EditButton = document.createElement('button');
                     EditButton.className = "btn btn-default";
                     EditButton.innerHTML = "Edit";
-                    EditButton.setAttribute("data-id", CurrentCourseId);
+                    EditButton.setAttribute("data-id", Course["CourseID"]);
                     EditButton.setAttribute("data-btntype", "Edit");
                     EditCol.appendChild(EditButton);
                     CurrentRow.appendChild(EditCol);
@@ -59,6 +59,7 @@
                     var DeleteButton = document.createElement('button');
                     DeleteButton.className = "btn btn-default";
                     DeleteButton.innerHTML = "Delete";
+                    //How to Pass Data?
                     DeleteButton.setAttribute("data-id", EnrollmentId);
                     DeleteButton.setAttribute("data-btntype", "Delete");
                     DeleteCol.appendChild(DeleteButton);

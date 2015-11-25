@@ -3,34 +3,33 @@
     CorrelationModule.getCorrelations(function (Correlations) {
         setupCourseWorkTable(Correlations);
     });
-    setupForm();
 });
 
-function setupForm() {
-    var form = document.forms.edit;
-    form.onsubmit = function (e) {
-        e.preventDefault();
-        var newCourseWork = {
-            CourseWorkID: CurrentCourseWorkId,
-            Title: document.getElementById("TitleInput").value,
-            WorkType: document.getElementById("WorkTypeInput").value,
-            DueDate: document.getElementById("DueDateInput").value
-        }
+function getUrlParameters(parameter, staticURL, decode) {
+    var currLocation = (staticURL.length) ? staticURL: window.location.search,
+        parArr = currLocation.split("?")[1].split("&"),
+        returnBool = true;
 
-        CourseWorkModule.updateCourseWork(CurrentCourseWorkID, newCourseWork, function () {
-            document.getElementById("UpdateForm").className = "hidden";
-            window.location.href = "../index.html";
-        });
-    };
+    for (var i = 0; i < parArr.length; i++) {
+        parr = parArr[i].split("=");
+        if (parr[0]== parameter) {
+            return (decode) ? decodeURIComponent(parr[1]): parr[1];
+            returnBool = true;
+            } else {
+            returnBool = false;
+        }
+    }
+
+    if (!returnBool) return false;
 };
 
 function setupCourseWorkTable(CorrelationsList) {
     for (i = 0; i < CorrelationsList.length; i++) {
         if (parseInt(CorrelationsList[i].CourseID) == parseInt(CurrentCourseId)) {
-            var CurrentCourseWorkId = CorrelationsList[i].CourseWorkID;
+            CurrentCourseWorkId = CorrelationsList[i].CourseWorkID;
             CourseWorkModule.getCourseWorkById(CurrentCourseWorkId, function (CourseWork) {
                 var CurrentRow = document.createElement('tr');
-                CurrentRow.setAttribute("data-id", CurrentCourseWorkId);
+                CurrentRow.setAttribute("data-id", CourseWork["CourseWorkID"]);
 
                 var TitleCol = document.createElement('td');
                 TitleCol.innerHTML = CourseWork["Title"];
@@ -54,13 +53,27 @@ function setupCourseWorkTable(CorrelationsList) {
                 var UpdateButton = document.createElement('button');
                 UpdateButton.className = "btn btn-default";
                 UpdateButton.innerHTML = "Update";
-                UpdateButton.setAttribute("data-id", CurrentCourseWorkId);
+                UpdateButton.setAttribute("data-id", CourseWork["CourseWorkID"]);
                 UpdateButton.setAttribute("data-btntype", "Update");
                 UpdateCol.appendChild(UpdateButton);
                 CurrentRow.appendChild(UpdateCol);
-                
+
                 UpdateButton.addEventListener('click', function (e) {
                     document.getElementById("UpdateForm").classList.remove("hidden");
+                    var form = document.forms.update;
+                    form.onsubmit = function (e) {
+                        e.preventDefault();
+                        var newCourseWork = {
+                            CourseWorkID: CourseWork["CourseWorkID"],
+                            Title: document.getElementById("TitleInput").value,
+                            WorkType: document.getElementById("WorkTypeInput").value,
+                            DueDate: document.getElementById("DueDateInput").value
+                        }
+
+                        CourseWorkModule.updateCourseWork(CourseWork["CourseWorkID"], newCourseWork, function () {
+                            window.location.reload(true);
+                        });
+                    };
                 });
 
                 document.getElementById("OutputCourseWorkList").appendChild(CurrentRow);
@@ -69,22 +82,7 @@ function setupCourseWorkTable(CorrelationsList) {
     };
     document.getElementById("CourseWorkTable").classList.remove("hidden");
     document.getElementById("LoadingMessage").style.display = "none";
-}
-
-function getUrlParameters(parameter, staticURL, decode) {
-    var currLocation = (staticURL.length) ? staticURL : window.location.search,
-        parArr = currLocation.split("?")[1].split("&"),
-        returnBool = true;
-
-    for (var i = 0; i < parArr.length; i++) {
-        parr = parArr[i].split("=");
-        if (parr[0] == parameter) {
-            return (decode) ? decodeURIComponent(parr[1]) : parr[1];
-            returnBool = true;
-        } else {
-            returnBool = false;
-        }
-    }
-
-    if (!returnBool) return false;
 };
+
+
+

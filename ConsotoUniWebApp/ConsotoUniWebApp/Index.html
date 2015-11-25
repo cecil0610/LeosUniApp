@@ -11,7 +11,9 @@
     <script src="Scripts/Index.js"></script>
 </head>
 <body>
+    <script src="Scripts/FacebookLogin.js"></script>
     <header>
+        <hr />
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -36,16 +38,20 @@
                         <li>
                             <a href="#">
                                 <span class="glyphicon glyphicon-log-in"></span>
-                                 Login 
+                                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> 
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <hr />
     </header>
 
+    <div id="status"></div>
+
     <div class="container">
+        <hr />
         <p id="LoadingMessage">Loading Data Please Wait...</p>
         <div class="table-responsive">
             <table class="table table-striped spaced-table table-hover hidden" id="StudentTable">

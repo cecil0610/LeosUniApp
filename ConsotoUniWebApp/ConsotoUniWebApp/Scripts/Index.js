@@ -39,6 +39,6 @@
         };
 
         document.getElementById("StudentTable").classList.remove("hidden");
-        document.getElementById("LoadingMessage").style.display = "none";
+        //document.getElementById("LoadingMessage").style.display = "none";
     };
 });

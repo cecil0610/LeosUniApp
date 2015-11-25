@@ -59,7 +59,7 @@
                     var DeleteButton = document.createElement('button');
                     DeleteButton.className = "btn btn-default";
                     DeleteButton.innerHTML = "Delete";
-                    //How to Pass Data?
+                    //How to Pass EnrollmentId?
                     DeleteButton.setAttribute("data-id", EnrollmentId);
                     DeleteButton.setAttribute("data-btntype", "Delete");
                     DeleteCol.appendChild(DeleteButton);

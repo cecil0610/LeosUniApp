@@ -5,13 +5,16 @@
 	<meta charset="utf-8" />
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/style.css" />
+    <link rel="stylesheet" href="Content/themes/fakeLoader.css" />
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/jquery-2.1.4.js"></script>
     <script src="Scripts/StudentModule.js"></script>
     <script src="Scripts/Index.js"></script>
+    <script src="Scripts/FacebookLogin.js"></script>
+    <script src="Scripts/fakeloader.min.js"></script>
 </head>
 <body>
-    <script src="Scripts/FacebookLogin.js"></script>
+    
     <header>
         <hr />
         <nav class="navbar navbar-inverse">
@@ -52,7 +55,9 @@
 
     <div class="container">
         <hr />
-        <p id="LoadingMessage">Loading Data Please Wait...</p>
+        <div id="fakeLoader">
+            <p id="LoadingMessage">Loading Data Please Wait...</p>
+        </div>
         <div class="table-responsive">
             <table class="table table-striped spaced-table table-hover hidden" id="StudentTable">
                 <thead>

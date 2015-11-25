@@ -233,6 +233,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\themes\fakeLoader.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Pages\AddCourse.html" />
@@ -253,6 +254,7 @@
     <None Include="Properties\PublishProfiles\consotowebappleo.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FacebookLogin.js" />
+    <Content Include="Scripts\fakeLoader.min.js" />
     <Content Include="Scripts\InitialChat.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

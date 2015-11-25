@@ -19,9 +19,12 @@ namespace ConsotoUniApi.Models
     public class CourseWork
     {
         public int CourseWorkID { get; set; }
+        public string Title { get; set; }
         public WorkType? WorkType { get; set; }
-        public int WorkNumber { get; set; }
         public DateTime DueDate { get; set; }
         public Grade? Grade { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<Correlation> Correlations { get; set; }
     }
 }

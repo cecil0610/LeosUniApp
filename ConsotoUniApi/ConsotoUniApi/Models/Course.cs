@@ -30,5 +30,8 @@ namespace ConsotoUniApi.Models
         [JsonIgnore]
         public virtual ICollection<Enrollment> Enrollments { get; set; }
 
+        [JsonIgnore]
+        public virtual ICollection<Correlation> Correlations { get; set; }
+
     }
 }

@@ -14,6 +14,8 @@ namespace ConsotoUniApi.Models
 
         [JsonIgnore]
         public virtual Course Course { get; set; }
+
+        [JsonIgnore]
         public virtual Student Student { get; set; }
 
     }

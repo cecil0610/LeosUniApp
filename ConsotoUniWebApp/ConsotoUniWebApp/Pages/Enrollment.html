@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="../Content/style.css" />
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/jquery-2.1.4.js"></script>
-    <script src="../Scripts/StudentModule.js"></script>
     <script src="../Scripts/Enrollment.js"></script>
+    <script src="../Scripts/StudentModule.js"></script>
     <script src="../Scripts/EnrollmentModule.js"></script>
+    <script src="../Scripts/CourseModule.js"></script>
 </head>
 <body>
     <header>
@@ -38,8 +39,14 @@
             <table class="table table-striped spaced-table table-hover" id="EnrollmentInfo">
                 <thead>
                     <tr>
+                        <th id="TotalEnrolled">
+
+                        </th>
+                    </tr>
+                    <tr>
                         <th>Title</th>
                         <th>Credits</th>
+                        <th>CompletionStatus</th>
                     </tr>
                 </thead>
                 <tbody id="OutputEnrollmentList">

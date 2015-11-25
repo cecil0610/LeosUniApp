@@ -6,12 +6,18 @@
         document.getElementById("StudentInfo").classList.remove("hidden");
     });
 
+    document.getElementById("AddCourseLink").addEventListener('click', function (e) {
+        window.location.href = 'AddCourse.html'
+            + '?id=' + CurrentStudentId;
+    });
+
     EnrollmentModule.getEnrollments(function (Enrollments) {
         var TotalEnrolled = 0;
         for (i = 0; i < Enrollments.length; i++) {
             if (Enrollments[i].StudentID == CurrentStudentId) {
                 TotalEnrolled++;
                 var CurrentCourseId = Enrollments[i].CourseID;
+                EnrollmentId = Enrollments[i].EnrollmentID;
                 CourseModule.getCourseById(CurrentCourseId, function (Course) {
                     var CurrentRow = document.createElement('tr');
                     CurrentRow.setAttribute("data-id", CurrentCourseId);
@@ -34,19 +40,34 @@
                     };
                     CurrentRow.appendChild(CompletionStatusCol);
 
-                    //UpdateCourseWork
+                    var EditCol = document.createElement('td');
+                    var EditButton = document.createElement('button');
+                    EditButton.className = "btn btn-default";
+                    EditButton.innerHTML = "Edit";
+                    EditButton.setAttribute("data-id", CurrentCourseId);
+                    EditButton.setAttribute("data-btntype", "Edit");
+                    EditCol.appendChild(EditButton);
+                    CurrentRow.appendChild(EditCol);
+
+                    EditButton.addEventListener('click', function (e) {
+                        var TargetButton = e.target;
+                        window.location.href = 'EditCourseWork.html'
+                            + '?id=' + TargetButton.getAttribute("data-id");
+                    });
 
                     var DeleteCol = document.createElement('td');
                     var DeleteButton = document.createElement('button');
                     DeleteButton.className = "btn btn-default";
                     DeleteButton.innerHTML = "Delete";
-                    DeleteButton.setAttribute("data-id", CurrentCourseId);
+                    DeleteButton.setAttribute("data-id", EnrollmentId);
                     DeleteButton.setAttribute("data-btntype", "Delete");
                     DeleteCol.appendChild(DeleteButton);
                     CurrentRow.appendChild(DeleteCol);
 
                     DeleteButton.addEventListener('click', function (e) {
                         var TargetButton = e.target;
+                        var TargetEnrollmentId = TargetButton.getAttribute("data-id");
+                        EnrollmentModule.deleteEnrollment(TargetEnrollmentId, function () { });
                         TargetButton = TargetButton.parentNode;
                         var TargetCourse = TargetButton.parentNode;
                         var TargetParent = TargetCourse.parentNode;
@@ -60,6 +81,7 @@
             };
         };
         document.getElementById("TotalEnrolled").innerHTML = TotalEnrolled;
+        document.getElementById("EnrollmentInfo").classList.remove("hidden");
     });
     
 });

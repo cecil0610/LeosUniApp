@@ -181,6 +181,7 @@
     <Content Include="Pages\AddCourse.html" />
     <Content Include="Pages\EditCourseWork.html" />
     <Content Include="Pages\EnrollmentDetail.html" />
+    <Content Include="Scripts\AddCourse.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

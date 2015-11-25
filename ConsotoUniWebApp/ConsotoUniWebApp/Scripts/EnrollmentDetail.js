@@ -67,11 +67,13 @@
                     DeleteButton.addEventListener('click', function (e) {
                         var TargetButton = e.target;
                         var TargetEnrollmentId = TargetButton.getAttribute("data-id");
-                        EnrollmentModule.deleteEnrollment(TargetEnrollmentId, function () { });
-                        TargetButton = TargetButton.parentNode;
+                        EnrollmentModule.deleteEnrollment(TargetEnrollmentId, function () {
+                            window.location.reload(true);
+                        });
+                        /*TargetButton = TargetButton.parentNode;
                         var TargetCourse = TargetButton.parentNode;
                         var TargetParent = TargetCourse.parentNode;
-                        TargetParent.removeChild(TargetCourse);
+                        TargetParent.removeChild(TargetCourse);*/
                         var CurrentEnrolled = parseInt(document.getElementById("TotalEnrolled").innerHTML) - 1;
                         document.getElementById("TotalEnrolled").innerHTML = CurrentEnrolled;
                     });

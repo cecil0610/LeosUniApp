@@ -34,6 +34,7 @@ function setupCoursesTable(CoursesList) {
                 CourseID: CurrentCourseId,
                 StudentID: CurrentStudentId
             };
+
             EnrollmentModule.getEnrollments(function (Enrollments) {
                 flag1 = true;
                 for (i = 0; i < Enrollments.length; i++) {
@@ -42,11 +43,9 @@ function setupCoursesTable(CoursesList) {
                         flag3 = false;
                         if (parseInt(Enrollments[i].StudentID) == parseInt(newEnrollment.StudentID)) {
                             flag2 = true;
-                            alert("1");
                         };
                         if (parseInt(Enrollments[i].CourseID) == parseInt(newEnrollment.CourseID)) {
                             flag3 = true;
-                            alert("2");
                         };
                         if (flag2 && flag3) {
                             flag1 = false;

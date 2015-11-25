@@ -195,7 +195,10 @@
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CorrelationModule.js" />
     <Content Include="Scripts\CourseModule.js" />
+    <Content Include="Scripts\CourseWorkModule.js" />
+    <Content Include="Scripts\EditCourseWork.js" />
     <Content Include="Scripts\EnrollmentDetail.js" />
     <Content Include="Scripts\EnrollmentModule.js" />
     <Content Include="Scripts\Index.js" />

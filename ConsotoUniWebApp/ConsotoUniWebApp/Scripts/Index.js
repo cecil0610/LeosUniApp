@@ -31,7 +31,7 @@
 
             ManageButton.addEventListener('click', function (e) {
                 var TargetButton = e.target;
-                window.location.href = '/Pages/Enrollment.html'
+                window.location.href = '/Pages/EnrollmentDetail.html'
                     + '?id=' + TargetButton.getAttribute("data-id");
             });
 

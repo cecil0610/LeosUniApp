@@ -25,14 +25,41 @@
                     CurrentRow.appendChild(CreditsCol);
 
                     var CompletionStatusCol = document.createElement('td');
-                    CompletionStatusCol.innerHTML = Course["CompletionStatus"];
+                    switch (Course["CompletionStatus"]) {
+                        case 0:
+                            CompletionStatusCol.innerHTML = "InProgress";
+                            break;
+                        case 1:
+                            CompletionStatusCol.innerHTML = "Completed";
+                    };
                     CurrentRow.appendChild(CompletionStatusCol);
+
+                    //UpdateCourseWork
+
+                    var DeleteCol = document.createElement('td');
+                    var DeleteButton = document.createElement('button');
+                    DeleteButton.className = "btn btn-default";
+                    DeleteButton.innerHTML = "Delete";
+                    DeleteButton.setAttribute("data-id", CurrentCourseId);
+                    DeleteButton.setAttribute("data-btntype", "Delete");
+                    DeleteCol.appendChild(DeleteButton);
+                    CurrentRow.appendChild(DeleteCol);
+
+                    DeleteButton.addEventListener('click', function (e) {
+                        var TargetButton = e.target;
+                        TargetButton = TargetButton.parentNode;
+                        var TargetCourse = TargetButton.parentNode;
+                        var TargetParent = TargetCourse.parentNode;
+                        TargetParent.removeChild(TargetCourse);
+                        var CurrentEnrolled = parseInt(document.getElementById("TotalEnrolled").innerHTML) - 1;
+                        document.getElementById("TotalEnrolled").innerHTML = CurrentEnrolled;
+                    });
 
                     document.getElementById("OutputEnrollmentList").appendChild(CurrentRow);
                 });
             };
         };
-        document.getElementById("TotalEnrolled").innerHTML = "The Total of Enrolled Courses: "+ TotalEnrolled;
+        document.getElementById("TotalEnrolled").innerHTML = TotalEnrolled;
     });
     
 });

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Content/style.css" />
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/jquery-2.1.4.js"></script>
-    <script src="../Scripts/Enrollment.js"></script>
+    <script src="../Scripts/EnrollmentDetail.js"></script>
     <script src="../Scripts/StudentModule.js"></script>
     <script src="../Scripts/EnrollmentModule.js"></script>
     <script src="../Scripts/CourseModule.js"></script>
@@ -31,22 +31,33 @@
     </header>
 
     <div class="container">
-        <h3 class="hidden" id="StudentInfo" style="text-align:center;">
-           
-        </h3>
+        <p class="hidden" id="StudentInfo" style="text-align:center;">
+
+        </p>
 
         <div class="table-responsive">
             <table class="table table-striped spaced-table table-hover" id="EnrollmentInfo">
                 <thead>
                     <tr>
-                        <th id="TotalEnrolled">
+                        <th>
+                            The Total of Enrolled Courses:
+                            <span id="TotalEnrolled">
 
+                            </span>
+                        </th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                            <a></a>
                         </th>
                     </tr>
                     <tr>
                         <th>Title</th>
                         <th>Credits</th>
                         <th>CompletionStatus</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="OutputEnrollmentList">

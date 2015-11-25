@@ -178,7 +178,9 @@
     <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Pages\Enrollment.html" />
+    <Content Include="Pages\AddCourse.html" />
+    <Content Include="Pages\EditCourseWork.html" />
+    <Content Include="Pages\EnrollmentDetail.html" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -193,7 +195,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\CourseModule.js" />
-    <Content Include="Scripts\Enrollment.js" />
+    <Content Include="Scripts\EnrollmentDetail.js" />
     <Content Include="Scripts\EnrollmentModule.js" />
     <Content Include="Scripts\Index.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />

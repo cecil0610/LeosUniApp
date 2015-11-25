@@ -14,14 +14,14 @@
     EnrollmentModule.getEnrollments(function (Enrollments) {
         var TotalEnrolled = 0;
         for (i = 0; i < Enrollments.length; i++) {
-            if (Enrollments[i].StudentID == CurrentStudentId) {
+            if (parseInt(Enrollments[i].StudentID) == parseInt(CurrentStudentId)) {
                 TotalEnrolled++;
-                var CurrentCourseId = Enrollments[i].CourseID;
+                CurrentCourseId = Enrollments[i].CourseID;
                 EnrollmentId = Enrollments[i].EnrollmentID;
                 CourseModule.getCourseById(CurrentCourseId, function (Course) {
                     var CurrentRow = document.createElement('tr');
                     CurrentRow.setAttribute("data-id", CurrentCourseId);
-
+                    
                     var TitleCol = document.createElement('td');
                     TitleCol.innerHTML = Course["Title"];
                     CurrentRow.appendChild(TitleCol);
@@ -70,10 +70,7 @@
                         EnrollmentModule.deleteEnrollment(TargetEnrollmentId, function () {
                             window.location.reload(true);
                         });
-                        /*TargetButton = TargetButton.parentNode;
-                        var TargetCourse = TargetButton.parentNode;
-                        var TargetParent = TargetCourse.parentNode;
-                        TargetParent.removeChild(TargetCourse);*/
+
                         var CurrentEnrolled = parseInt(document.getElementById("TotalEnrolled").innerHTML) - 1;
                         document.getElementById("TotalEnrolled").innerHTML = CurrentEnrolled;
                     });

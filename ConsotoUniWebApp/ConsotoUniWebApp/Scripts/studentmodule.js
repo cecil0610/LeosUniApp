@@ -17,7 +17,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://consotoapileo.azurewebsites.net/api/Students" + id,
+                url: "http://consotoapileo.azurewebsites.net/api/Students/" + id,
                 success: function (data) {
                     console.log(data);
                     callback(data);
@@ -40,7 +40,7 @@
             $.ajax({
                 type: "PUT",
                 data: student,
-                url: "http://consotoapileo.azurewebsites.net/api/Students" + studentid,
+                url: "http://consotoapileo.azurewebsites.net/api/Students/" + studentid,
                 success: function (data, textStatus, jqXHR) {
                     callback();
                 }
@@ -51,13 +51,13 @@
             $.ajax({
                 type: "DELETE",
                 dataType: "json",
-                url: "http://consotoapileo.azurewebsites.net/api/Students" + studentid,
+                url: "http://consotoapileo.azurewebsites.net/api/Students/" + studentid,
                 success: function (data) {
                     callback();
                 }
             });
         }
-
+       
     };
 
 }());

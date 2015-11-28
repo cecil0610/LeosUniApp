@@ -5,12 +5,10 @@
         document.getElementById("StudentInfo").innerHTML = FullName;
         document.getElementById("StudentInfo").classList.remove("hidden");
     });
-
     document.getElementById("AddCourseLink").addEventListener('click', function (e) {
         window.location.href = 'AddCourse.html'
             + '?id=' + CurrentStudentId;
     });
-
     EnrollmentModule.getEnrollments(function (Enrollments) {
         var TotalEnrolled = 0;
         for (i = 0; i < Enrollments.length; i++) {
@@ -18,9 +16,11 @@
                 TotalEnrolled++;
                 CurrentCourseId = Enrollments[i].CourseID;
                 EnrollmentId = Enrollments[i].EnrollmentID;
+                //how to pass these two parameters properly without disabling async? what is the equivalent of await here?
+
                 CourseModule.getCourseById(CurrentCourseId, function (Course) {
-                    var CurrentRow = document.createElement('tr');
-                    CurrentRow.setAttribute("data-id", Course["CourseID"]);
+                    CurrentRow = document.createElement('tr');
+                    CurrentRow.setAttribute("data-id", CurrentCourseId);
 
                     var TitleCol = document.createElement('td');
                     TitleCol.innerHTML = Course["Title"];
@@ -44,7 +44,7 @@
                     var EditButton = document.createElement('button');
                     EditButton.className = "btn btn-default";
                     EditButton.innerHTML = "Edit";
-                    EditButton.setAttribute("data-id", Course["CourseID"]);
+                    EditButton.setAttribute("data-id", CurrentCourseId);
                     EditButton.setAttribute("data-btntype", "Edit");
                     EditCol.appendChild(EditButton);
                     CurrentRow.appendChild(EditCol);
@@ -59,7 +59,6 @@
                     var DeleteButton = document.createElement('button');
                     DeleteButton.className = "btn btn-default";
                     DeleteButton.innerHTML = "Delete";
-                    //How to Pass EnrollmentId?
                     DeleteButton.setAttribute("data-id", EnrollmentId);
                     DeleteButton.setAttribute("data-btntype", "Delete");
                     DeleteCol.appendChild(DeleteButton);

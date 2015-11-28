@@ -6,6 +6,7 @@
                 type: "GET",
                 dataType: "json",
                 url: "http://consotoapileo.azurewebsites.net/api/Enrollments",
+                //async:false,
                 success: function (data) {
                     callback(data);
                 }
